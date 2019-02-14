@@ -1,0 +1,5 @@
+flask
+yattag
+flask-restplus
+cefpython3
+flask-monitoringdashboard

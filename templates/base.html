@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{# This is a jinga template that constructs all of it html through assemble.html #}
+{%  block head %}
+    {{ html.load_jquery() | safe }}
+{% endblock %}
+{% block contents %}
+{% endblock %}

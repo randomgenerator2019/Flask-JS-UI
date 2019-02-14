@@ -1,3 +1,7 @@
+'''
+This is intended for all python endpoint backend tasks
+'''
+
 import os
 
 # Use this for calls to outside libraries and system based functions
