@@ -9,3 +9,4 @@ def load_jquery():
     Yattag formatted jquery load
     :return: str() escaped htm for jinga templates
     '''
+    pass

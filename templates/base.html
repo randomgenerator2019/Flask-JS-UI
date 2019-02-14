@@ -1,6 +1,7 @@
-{# This is a jinga template that constructs all of it html through assemble.html #}
+{# This is intended as a base template to load all required scripts , themes and css #}
 {%  block head %}
     {{ html.load_jquery() | safe }}
+    {{ html.load_theme() | safe }}
 {% endblock %}
 {% block contents %}
 {% endblock %}

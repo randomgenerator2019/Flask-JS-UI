@@ -1,10 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{# This is intended as the applications main working page #}
+{%  extends "base.html" %}
+{% block head %}
+    {# call base templates head block #}
+    {{ super() }}
+{% endblock %}
 
-</body>
-</html>
+{% block contents %}
+    {# construct html from backend.html #}}
+    {{ html.construct_index()| safe }}
+{% endblock %}
