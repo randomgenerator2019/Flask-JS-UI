@@ -1,5 +1,5 @@
 '''
-This is intended for all python endpoint backend tasks
+Intended for all python endpoint backend tasks
 '''
 
 import os
