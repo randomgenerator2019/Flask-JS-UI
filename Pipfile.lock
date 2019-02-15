@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "6eced47ebd89bde6f73f7e48ff02cb842e5de2a07e3074eff9670ffa5e88ed98"
+            "sha256": "2916f5657b325e5faba862d67cffa09f19ff5e56554e5193865b00019fd8c798"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -22,6 +22,17 @@
                 "sha256:ac30cceff24aec920c37b8d74d7d8a5dd37b1f62a90b4f268a6234cabe147080"
             ],
             "version": "==4.1.0"
+        },
+        "cefpython3": {
+            "hashes": [
+                "sha256:3ff46d8a1aadc1498e60eb451c4ec943aa0f66574617556cc977ed918abab76d",
+                "sha256:8e3b5491b6bffa000af56339db00d478912dc73bdb3714ed9cd3352ca6d1fbc4",
+                "sha256:9b8018c3b5aee260c755e0e0691be04f60ed10389e7eeea44f40ba9a3b0b410e",
+                "sha256:b0a23d5a04605e817c1b9f2135c6702f015e748f55b9ad47f7314232b31e12e2",
+                "sha256:b643f94d4fcf88bcea49a205ea9ff3f206b1422d5e0ce9fa5b193971c5a0e52b"
+            ],
+            "index": "pypi",
+            "version": "==66.0"
         },
         "certifi": {
             "hashes": [

@@ -1,0 +1,85 @@
+<templateSet group="Flask-JS-UI">
+  <template name="jinga_child_tempale" value="{# Intended $EXPLAINATION$ #}&#10;&#10;{% extends &quot;$PARENT_TEMPLATE$.html&quot; %}&#10;&#10;{% block head %}&#10;    {{ super() }}&#10;{% endblock %}&#10;&#10;{% block content %}&#10;    {{ html.$BACKEND_HTML_FUNCTION$() | safe }} &#10;{% endblock %}" description="Child template" toReformat="false" toShortenFQNames="true">
+    <variable name="EXPLAINATION" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="PARENT_TEMPLATE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="BACKEND_HTML_FUNCTION" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="HTML" value="true" />
+      <option name="HTML_TEXT" value="false" />
+    </context>
+  </template>
+  <template name="jinga_html_call" value="{{ html.$BACKEND_HTML_FUNCTION$() | safe }}" description="Additional backend.html call" toReformat="false" toShortenFQNames="true">
+    <variable name="BACKEND_HTML_FUNCTION" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="HTML" value="true" />
+      <option name="HTML_TEXT" value="false" />
+    </context>
+  </template>
+  <template name="restplus_model_class" value="class $NAME$(object):&#10;    '''$EXPLAINATION$'''&#10;    def __init__(self):&#10;        self.counter = 0&#10;        self.$NAME$s = []&#10;&#10;    def get(self, id):&#10;        '''retrieve $NAME$ from model''' &#10;        for item in self.$NAME$s:&#10;            if item['id'] == id:&#10;                return item&#10;        api.abort(404, &quot;$NAME$ {} doesn't exist&quot;.format(id))&#10;&#10;    def create(self, data):&#10;        '''create a $NAME$'''&#10;        data['id'] = self.counter = self.counter + 1&#10;        self.$NAME$s.append(todo)&#10;        return data&#10;&#10;    def update(self, id, data):&#10;        ''' Update a $NAME$'''&#10;        item = self.get(id)&#10;        item.update(data)&#10;        return item&#10;&#10;    def delete(self, id):&#10;        ''' Delete a $NAME$'''&#10;        item = self.get(id)&#10;        self.$NAME$s.remove(todo)" description="Prebuilt Model class" toReformat="false" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="EXPLAINATION" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+      <option name="Python_Class" value="false" />
+    </context>
+  </template>
+  <template name="restplus_model_marshal" value="$NAME$ = api.model('$NAME$', {&#10;    'id': fields.Integer(readOnly=True, description='The $NAME$ unique identifier'),&#10;    &#10;})" description="Prebuilt Marshal definition" toReformat="false" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+      <option name="Python_Class" value="false" />
+    </context>
+  </template>
+  <template name="restplus_model_marshal_field" value="'$NAME$': fields.$TYPE$(required=True, description='$DESCRIPTION$')" description="Additional marshal Fields" toReformat="false" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="TYPE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="DESCRIPTION" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+      <option name="Python_Class" value="false" />
+    </context>
+  </template>
+  <template name="restplus_route" value="@$NAMESPACE$.route('$ROUTE_STRING$')&#10;@$NAMESPACE$.response(404, '$MODEL$ not found')&#10;@$NAMESPACE$.param('id', 'The $MODEL$ identifier')&#10;class $CLASS_NAME$(Resource):&#10;    '''Show a single $MODEL$s item and lets you delete them'''&#10;&#10;    @$NAMESPACE$.doc('get_$MODEL$')&#10;    @$NAMESPACE$.marshal_with($MARSHAL$)&#10;    def get(self, id):&#10;        '''Fetch a given resource'''&#10;        return $MODEL$.get(id)&#10;&#10;    @$NAMESPACE$.doc('delete_$MODEL$')&#10;    @$NAMESPACE$.response(204, '$MODEL$ deleted')&#10;    def delete(self, id):&#10;        '''Delete a $MODEL$ given its identifier'''&#10;        $MODEL$.delete(id)&#10;        return '', 204&#10;&#10;    @$NAMESPACE$.expect($MARSHAL$)&#10;    @$NAMESPACE$.marshal_with($MARSHAL$)&#10;    def put(self, id):&#10;        '''Update a $MODEL$ given its identifier'''&#10;        return $MODEL$.update(id, api.payload)" description="New REST API Route/Endpoint" toReformat="false" toShortenFQNames="true">
+    <variable name="NAMESPACE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="ROUTE_STRING" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="MODEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="CLASS_NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="MARSHAL" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+      <option name="Python_Class" value="false" />
+    </context>
+  </template>
+  <template name="requests_get" value="get('$API_ENDPOINT$').json" description="Python requests get" toReformat="false" toShortenFQNames="true">
+    <variable name="API_ENDPOINT" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="requests_put" value="put('$API_ENDPOINT$', data={$DATA_DICT$}).json" description="Python requests put" toReformat="false" toShortenFQNames="true">
+    <variable name="API_ENDPOINT" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="DATA_DICT" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="restplus_namespace" value="$NAME$ = Namespace('$NMAE$', description='$DESCRIPTION$')" description="New Namespace definition" toReformat="false" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="NMAE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="DESCRIPTION" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="restplus_route_param" value="@$NAMESPACE$.param('$PARAM$', '$DESCRIPTION$')" description="Additional parameter" toReformat="false" toShortenFQNames="true">
+    <variable name="NAMESPACE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="PARAM" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="DESCRIPTION" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="flask_route" value="@app.route('/$ROUTE_NAME$')&#10;def $METHOD_NAME$():&#10;    pass" description="Not for API" toReformat="false" toShortenFQNames="true">
+    <variable name="ROUTE_NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="METHOD_NAME" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="flask_route_get_post" value="@app.route('/$ROUTE_NAME$', methods=['GET', 'POST'])&#10;def $METHOD_NAME$():&#10;    pass" description="Flask route with ''GET' and 'POST' methods. Not for API" toReformat="false" toShortenFQNames="true">
+    <variable name="ROUTE_NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="METHOD_NAME" expression="" defaultValue="" alwaysStopAt="true" />
+  </template>
+  <template name="comment_block" value="#-----------&#10;# $COMMENT$&#10;#-----------" description="formatted comment block" toReformat="false" toShortenFQNames="true">
+    <variable name="COMMENT" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+      <option name="Python_Class" value="false" />
+    </context>
+  </template>
+</templateSet>

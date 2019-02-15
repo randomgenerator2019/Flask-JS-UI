@@ -1,6 +1,7 @@
 '''
 Intended to replace the need to write any HTML by encapsulating in yattag
 '''
+
 #- standard library imports
 
 #- 3rd party library imports
@@ -19,3 +20,4 @@ def construct_index():
     :return: str() escaped html for index page
     '''
     pass
+

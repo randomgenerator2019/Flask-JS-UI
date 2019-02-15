@@ -1,0 +1,15 @@
+{# Intended to be a showcase of available backend.html widgets #}
+{%  extends "base.html" %}
+{% block head %}
+    {# call base templates head block #}
+    {{ super() }}
+{% endblock %}
+
+{% block contents %}
+    {# construct html from backend.html #}}
+    {# displays widgets from backend.html #}
+    {# todo build a list of widgets such as tables, tabs & forms easily copy and pasteable code #}
+    {# todo add a data set to show the flow of information #}
+    {{ html.construct_widget_table()| safe }}
+{% endblock %}
+
