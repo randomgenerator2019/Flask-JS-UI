@@ -1,3 +1,10 @@
+'''
+Intended as a demonstration for model interaction through swagger UI
+'''
+#- standard library imports
+
+#- 3rd party library imports
+
 
 class ModelObject(object):
     '''Demo object for model usage'''
