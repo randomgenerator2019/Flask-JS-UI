@@ -1,4 +1,4 @@
-# Flask JavaScript/Jquery UI 
+# Flask JavaScript/Jquery UI -WORK IN PROGRESS-
 
 This is intended as a template for a standalone webapp using python. 
 
